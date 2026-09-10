@@ -746,6 +746,15 @@ footer {
     gap: 18px;
   }
 
+  /* 关闭滤镜/合成提示，让立体标题以矢量文字写入 PDF（更小更清晰） */
+  .depth-text__stage {
+    will-change: auto;
+  }
+
+  .depth-text__layer {
+    filter: none;
+  }
+
   .border-glow-card .border-glow-inner {
     padding: 26px 30px;
   }
