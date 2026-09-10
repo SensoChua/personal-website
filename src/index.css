@@ -692,3 +692,83 @@ footer {
     scroll-behavior: auto;
   }
 }
+
+/* ============ 打印 / 导出 PDF（沿用桌面版式） ============ */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  :root {
+    background: #ffffff;
+  }
+
+  html,
+  body {
+    background: #ffffff;
+    scroll-behavior: auto;
+  }
+
+  /* 纯交互效果不进入 PDF */
+  .glow-cursor__canvas,
+  .text-cursor-container,
+  .gooey-nav-container .effect,
+  .gooey-nav-container .particle,
+  .gooey-nav-container .point {
+    display: none !important;
+  }
+
+  /* 首屏独占封面页 */
+  .hero {
+    min-height: 100vh;
+    break-after: page;
+  }
+
+  /* 每个栏目单独起页，并收紧留白让内容落在一页内 */
+  .band {
+    padding: 56px 8vw 20px;
+    break-before: page;
+  }
+
+  .band:last-of-type {
+    padding-bottom: 40px;
+  }
+
+  .band-head {
+    margin-bottom: 34px;
+    padding-bottom: 16px;
+    break-after: avoid;
+    break-inside: avoid;
+  }
+
+  .glow-list {
+    gap: 18px;
+  }
+
+  .border-glow-card .border-glow-inner {
+    padding: 26px 30px;
+  }
+
+  .glow-facts .border-glow-inner {
+    padding: 12px 20px;
+  }
+
+  /* 尾页铺满整页，作为封底 */
+  .closing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 90px 8vw;
+    break-before: page;
+  }
+
+  .border-glow-card,
+  .glow-fact,
+  .closing-links a,
+  .closing-links span {
+    break-inside: avoid;
+  }
+}
