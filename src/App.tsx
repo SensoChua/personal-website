@@ -60,7 +60,10 @@ export default function App() {
       {/* ——— Hero stage（背景照片 + 个人信息）——— */}
       <section className="hero" aria-label="intro">
         <div className="footer-background" aria-hidden="true">
-          <img src="hero-background.png" alt="" />
+          <picture>
+            <source media="(max-width: 700px)" srcSet="hero-mobile.jpg" />
+            <img src="hero-background.png" alt="" />
+          </picture>
         </div>
 
         <div className="jobs">
